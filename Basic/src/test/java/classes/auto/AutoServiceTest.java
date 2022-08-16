@@ -150,7 +150,6 @@ public class AutoServiceTest {
 
         Assert.assertArrayEquals(expected, result);
     }
-//-------------------
 
     @Test
     public void firstTestGetOnlyAutomaticTypeCars() {

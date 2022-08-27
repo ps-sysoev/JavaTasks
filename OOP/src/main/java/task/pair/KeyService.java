@@ -32,11 +32,7 @@ public class KeyService {
             }
         }
 
-        if (hashString.length() > 0) {
-            return new BigInteger(String.valueOf(hashString));
-        }
-
-        return BigInteger.ZERO;
+        return hashString.length() > 0 ? new BigInteger(hashString.toString()) : BigInteger.ZERO;
     }
 
     private boolean contains(char element) {

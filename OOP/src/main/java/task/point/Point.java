@@ -41,6 +41,20 @@ public class Point {
         return y;
     }
 
+    /**
+     * Метод вычисляет расстояние между двумя точками на плоскости.
+     *
+     * @param point вторая точка
+     * @return расстояние между точками (вещественное число)
+     */
+    public double distance(Point point) {
+        if (Objects.isNull(point)) {
+            throw new IllegalArgumentException("Incorrect parameter: point is null.");
+        }
+
+        return Math.sqrt(Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

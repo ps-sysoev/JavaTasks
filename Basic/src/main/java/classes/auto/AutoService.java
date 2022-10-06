@@ -1,6 +1,7 @@
 package classes.auto;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Сервис по работе с автомобилями
@@ -14,27 +15,22 @@ public class AutoService {
      * @param autos массив автомобилей
      * @return найденный массив автомобилей заданной марки
      */
-    public static Auto[] getSpecificCarModel(String model, Auto[] autos) {
-        if (model == null ||
-                model.isEmpty() ||
-                model.equals(" ") ||
-                autos == null ||
-                autos.length == 0 ||
-                autos[0] == null) {
+    public static List<Auto> getSpecificCarModel(String model, List<Auto> autos) {
+        if (model == null || model.isEmpty() || model.equals(" ") ||
+                autos == null || autos.size() == 0 || autos.get(0) == null) {
 
-            return new Auto[0];
+            return List.of();
         }
 
-        Auto[] tempAutos = new Auto[autos.length];
-        int i = 0;
+        List<Auto> tempAutos = new ArrayList<>();
 
         for (Auto car : autos) {
             if (car.getModel().toLowerCase().contains(model.toLowerCase())) {
-                tempAutos[i++] = car;
+                tempAutos.add(car);
             }
         }
 
-        return Arrays.copyOfRange(tempAutos, 0, i);
+        return tempAutos;
     }
 
     /**
@@ -44,24 +40,20 @@ public class AutoService {
      * @param autos все автомобили
      * @return автомобили спорт-класса
      */
-    public static Auto[] getSportCars(Auto[] autos) {
-        if (autos == null ||
-                autos.length == 0 ||
-                autos[0] == null) {
-
-            return new Auto[0];
+    public static List<Auto> getSportCars(List<Auto> autos) {
+        if (autos == null || autos.size() == 0 || autos.get(0) == null) {
+            return List.of();
         }
 
-        Auto[] tempAutos = new Auto[autos.length];
-        int i = 0;
+        List<Auto> tempAutos = new ArrayList<>();
 
         for (Auto car : autos) {
             if (car.getNumberOfPassengerSeats() == 2) {
-                tempAutos[i++] = car;
+                tempAutos.add(car);
             }
         }
 
-        return Arrays.copyOfRange(tempAutos, 0, i);
+        return tempAutos;
     }
 
     /**
@@ -70,23 +62,19 @@ public class AutoService {
      * @param autos все автомобили
      * @return автомобили с автоматической коробкой передач.
      */
-    public static Auto[] getOnlyAutomaticTypeCars(Auto[] autos) {
-        if (autos == null ||
-                autos.length == 0 ||
-                autos[0] == null) {
-
-            return new Auto[0];
+    public static List<Auto> getOnlyAutomaticTypeCars(List<Auto> autos) {
+        if (autos == null || autos.size() == 0 || autos.get(0) == null) {
+            return List.of();
         }
 
-        Auto[] tempAutos = new Auto[autos.length];
-        int i = 0;
+        List<Auto> tempAutos = new ArrayList<>();
 
         for (Auto car : autos) {
             if (car.getTransmissionType().equalsIgnoreCase("AT")) {
-                tempAutos[i++] = car;
+                tempAutos.add(car);
             }
         }
 
-        return Arrays.copyOfRange(tempAutos, 0, i);
+        return tempAutos;
     }
 }
